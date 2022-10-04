@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>InstallP5jS</title>
+
+    <script src="p5.js"></script>
+    <script>https://cdnjs.com/libraries/p5.js</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/addons/p5.sound.js"></script>
+    <script>
+
+        let mySound;
+
+        function preload() {
+            mySound = loadSound("christmasSong.mp3");
+        }
+
+
+
+        let y = 0;
+        let snow = 50;
+
+        let merry = "Merry Christmas!!!!";
+        let x = -220;
+
+
+
+        function keyPressed() {
+                mySound.play();
+            }
+        
+
+
+        function setup() {
+            createCanvas(600, 500);
+            frameRate(15);
+        }
+
+
+        function draw() {
+            background(220);
+
+            textSize(20)
+            fill("black")
+            text('Hold any key', 30, 100);
+
+            if (keyIsPressed === true) {
+                fill("white")
+                for (let s = 0; s < snow; s++) {
+                    circle(random(width), y + random(500), random(1, 20));
+                }
+
+            }
+            y += 20;
+
+            if (y > 0) {
+                y = -20;
+            }
+
+
+            noStroke()
+
+            //Floor
+            fill("white")
+            rect(0, 470, 600, 100);
+
+            //TREE
+            fill("green")
+            quad(350, 450, 550, 450, 500, 370, 400, 370);
+            quad(350, 375, 550, 375, 500, 300, 400, 300);
+            quad(350, 300, 550, 300, 500, 225, 400, 225);
+            triangle(525, 230, 450, 120, 375, 230);
+
+            fill("brown")
+            rect(424, 450, 55, 55);
+
+            //STAR
+            fill("yellow");
+            triangle(520, 140, 450, 140, 450, 120);
+            triangle(370, 140, 450, 140, 450, 120);
+            triangle(440, 125, 450, 80, 460, 125);
+            triangle(440, 125, 450, 180, 460, 125);
+
+            circle(450, 130, 30);
+
+            if (keyIsPressed === true) {
+                var colorOne = random(600);
+                var colorTwo = random(colorOne);
+                var colorThree = random(colorTwo);
+                fill(colorOne, colorTwo, colorThree);
+            }
+
+
+            //Decorations
+
+            circle(500, 350, 20);
+            circle(390, 275, 20);
+            circle(470, 200, 20);
+            circle(420, 330, 20);
+            circle(440, 380, 20);
+            circle(415, 200, 20);
+            circle(385, 425, 20);
+            circle(490, 430, 20);
+            circle(441, 415, 20);
+            circle(450, 220, 20);
+            circle(450, 300, 20);
+            circle(497, 275, 20);
+            circle(440, 250, 20);
+
+
+
+            //SANTA
+            fill("red")
+
+            circle(170, 370, 120);
+            triangle(140, 265, 160, 180, 200, 265);
+            rect(120, 400, 100, 30);
+            rect(120, 400, 30, 70);
+            rect(190, 400, 30, 70);
+            rect(125, 325, 140, 30);
+            rect(75, 325, 140, 30);
+
+            fill("black")
+            rect(120, 400, 100, 15);
+
+
+            fill("white")
+            rect(160, 300, 20, 100);
+            circle(170, 310, 75)
+            circle(160, 180, 30);
+
+            fill("tan")
+
+            circle(170, 290, 75)
+            circle(75, 340, 30);
+            circle(265, 340, 30);
+
+            fill("white")
+            circle(150, 280, 20)
+            circle(190, 280, 20)
+            arc(170, 310, 20, 20, 100, PI + QUARTER_PI, CHORD);
+
+
+            fill("Black")
+            circle(150, 280, 10)
+            circle(190, 280, 10)
+
+            if (keyIsPressed === true) {
+                textSize(50);
+                textFont('helvetica');
+                fill("red")
+
+                text(merry, x, 60);
+
+                // modify state
+                x = x + 16;
+
+                // reset state
+                if (x > width) {
+                    x = 0;
+                }
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+</body>
+
+</html>
